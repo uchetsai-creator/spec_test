@@ -81,27 +81,3 @@ else
     echo "SPECS_DIR: $FEATURE_DIR"
     echo "BRANCH: $CURRENT_BRANCH"
 fi
-
-
-
-# ── Auto-generate Draw.io ERD from any erd-*.md in FEATURE_DIR ──
-CONVERTER="$SCRIPT_DIR/mermaid_to_drawio.py"
-
-if [[ -f "$CONVERTER" ]]; then
-    for erd_md in "$FEATURE_DIR"/erd-*.md; do
-        if [[ -f "$erd_md" ]]; then
-            if $JSON_MODE; then
-                echo "Converting ERD: $erd_md" >&2
-            else
-                echo "Converting ERD: $erd_md"
-            fi
-            python3 "$CONVERTER" "$erd_md" || echo "Warning: ERD conversion failed for $erd_md" >&2
-        fi
-    done
-else
-    if $JSON_MODE; then
-        echo "Warning: mermaid_to_drawio.py not found at $CONVERTER" >&2
-    else
-        echo "Warning: mermaid_to_drawio.py not found at $CONVERTER"
-    fi
-fi
