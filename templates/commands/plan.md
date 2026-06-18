@@ -137,11 +137,13 @@ Command ends after Phase 2 planning. Report branch, IMPL_PLAN path, and generate
 **Prerequisites:** `research.md` complete
 
 1. **Extract entities from feature spec** → `data-model.md`:
+   - Use `.specify/templates/data-model.md` as the structure template
    - Entity name, fields, relationships
    - Validation rules from requirements
    - State transitions if applicable
 
 2. **Define interface contracts** (if project has external interfaces) → `/contracts/`:
+   - Use `.specify/templates/api-contract.md` as the structure template
    - Identify what interfaces the project exposes to users or other systems
    - Document the contract format appropriate for the project type
    - Examples: public APIs for libraries, command schemas for CLI tools, endpoints for web services, grammars for parsers, UI contracts for applications
